@@ -45,11 +45,7 @@ namespace Banking_System.Controllers
             }
         }
 
-        /// <summary>
-        /// Add a new product
-        /// </summary>
-        /// <param name="productDetails"></param>
-        /// <returns></returns>
+   
         [HttpPost]
         public async Task<IActionResult> CreateTransaction(Transaction trasactions)
         {
@@ -65,11 +61,7 @@ namespace Banking_System.Controllers
             }
         }
 
-        /// <summary>
-        /// Update the product
-        /// </summary>
-        /// <param name="productDetails"></param>
-        /// <returns></returns>
+       
         [HttpPut]
         public async Task<IActionResult> UpdateTransaction(Transaction transactions)
         {
