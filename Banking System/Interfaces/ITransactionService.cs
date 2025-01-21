@@ -8,7 +8,7 @@ namespace Banking_System.Interfaces
 
         Task<IEnumerable<Transaction>> GetAllTrasactions();
 
-        Task<Account> GetTransctionById(int tranactionId);
+        Task<Transaction> GetTransctionById(int tranactionId);
 
         Task<bool> UpdateTransaction(Transaction tranactions);
 

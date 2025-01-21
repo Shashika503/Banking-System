@@ -12,21 +12,7 @@ namespace Banking_System.Services
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<bool> CreateTransaction(Transaction transactions)
-    {
-        if (transactions != null)
-        {
-            await _unitOfWork.Transactions.Add(transactions);
-
-            var result = _unitOfWork.Save();
-
-            if (result > 0)
-                return true;
-            else
-                return false;
-        }
-        return false;
-    }
+   
 
     public async Task<bool> DeleteTransaction(int transactionId)
     {
@@ -47,24 +33,8 @@ namespace Banking_System.Services
         return false;
     }
 
-    public async Task<IEnumerable<Transaction>> GetAllTransactions()
-    {
-        var TranasctionList = await _unitOfWork.Transactions.GetAll();
-        return TranasctionList;
-    }
-
-    public async Task<Transaction> GetTransctionById(int trasactionId)
-    {
-        if (trasactionId > 0)
-        {
-            var transactionDetails = await _unitOfWork.Transactions.GetById(trasactionId);
-            if (transactionDetails != null)
-            {
-                return transactionDetails;
-            }
-        }
-        return null;
-    }
+    
+   
 
     public async Task<bool> UpdateTransaction(Transaction tranactions)
     {
@@ -89,19 +59,39 @@ namespace Banking_System.Services
         return false;
     }
 
-        Task<bool> ITransactionService.CreateTranasction(Transaction tranactions)
+        async Task<bool> ITransactionService.CreateTranasction(Transaction tranactions)
         {
-            throw new NotImplementedException();
+            if (tranactions != null)
+            {
+                await _unitOfWork.Transactions.Add(tranactions);
+
+                var result = _unitOfWork.Save();
+
+                if (result > 0)
+                    return true;
+                else
+                    return false;
+            }
+            return false;
         }
 
-        Task<IEnumerable<Transaction>> ITransactionService.GetAllTrasactions()
+        async Task<IEnumerable<Transaction>> ITransactionService.GetAllTrasactions()
         {
-            throw new NotImplementedException();
+            var TranasctionList = await _unitOfWork.Transactions.GetAll();
+            return TranasctionList;
         }
 
-        Task<Account> ITransactionService.GetTransctionById(int tranactionId)
+        async Task<Transaction> ITransactionService.GetTransctionById(int tranactionId)
         {
-            throw new NotImplementedException();
+            if (tranactionId > 0)
+            {
+                var transactionDetails = await _unitOfWork.Transactions.GetById(tranactionId);
+                if (transactionDetails != null)
+                {
+                    return transactionDetails;
+                }
+            }
+            return null;
         }
     }
 }
