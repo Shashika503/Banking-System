@@ -14,6 +14,6 @@ namespace Banking_System.Models
         public decimal Balance { get; set; }
         [Required]
         public DateTime DateTime { get; set; }
-        public required ICollection<Transaction?> Transaction { get; set; }
+        public required ICollection<Transaction?> Transactions { get; set; }
     }
 }

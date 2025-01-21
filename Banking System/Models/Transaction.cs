@@ -17,7 +17,7 @@ namespace Banking_System.Models
         [Required]
         public Decimal Amount { get; set; }
 
-        public Account Account { get; set; } = null!;
+        public Account? Account { get; set; }
 
     }
 }

@@ -15,7 +15,7 @@ namespace Banking_System.Data
         {
             // Configure relationships
             modelBuilder.Entity<Account>()
-                .HasMany(e => e.Transaction)
+               .HasMany(e => e.Transactions)
                 .WithOne(e => e.Account)
                 .HasForeignKey(id => id.AccountId);
                 
