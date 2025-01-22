@@ -31,7 +31,7 @@ namespace Banking_System.Controllers
         }
 
         [HttpGet("{accountId}")]
-        public async Task<IActionResult> GetProductById(int accountId)
+        public async Task<IActionResult> GetAccountById(int accountId)
         {
             var accountDetails = await _accountService.GetAccountById(accountId);
 
@@ -51,7 +51,7 @@ namespace Banking_System.Controllers
         /// <param name="productDetails"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> CreateProduct(Account accounts)
+        public async Task<IActionResult> CreateAccount(Account accounts)
         {
             var isAccountCreated = await _accountService.CreateAccount(accounts);
 
@@ -93,8 +93,8 @@ namespace Banking_System.Controllers
         /// </summary>
         /// <param name="productId"></param>
         /// <returns></returns>
-        [HttpDelete("{productId}")]
-        public async Task<IActionResult> DeleteProduct(int accountId)
+        [HttpDelete("{accountId}")]
+        public async Task<IActionResult> DeleteAccount(int accountId)
         {
             var isAcountCreated = await _accountService.DeleteAccount(accountId);
 

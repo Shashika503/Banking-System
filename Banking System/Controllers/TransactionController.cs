@@ -31,7 +31,7 @@ namespace Banking_System.Controllers
         }
 
         [HttpGet("{transactionId}")]
-        public async Task<IActionResult> GetProductById(int transactionId)
+        public async Task<IActionResult> GetTransactionById(int transactionId)
         {
             var transDetails = await _transactionService.GetTransctionById(transactionId);
 
@@ -86,7 +86,7 @@ namespace Banking_System.Controllers
         /// <param name="productId"></param>
         /// <returns></returns>
         [HttpDelete("{transactionId}")]
-        public async Task<IActionResult> DeleteProduct(int transactionId)
+        public async Task<IActionResult> DeleteTransaction(int transactionId)
         {
             var isTransCreated = await _transactionService.DeleteTransaction(transactionId);
 
